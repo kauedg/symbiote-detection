@@ -1,8 +1,6 @@
-#!/usr/bin/env python3.9
+import sys
 
 # Notice the key is hardcoded
-
-import sys
 
 def decryptRC4(data:str, key:str) -> str:
     S = list(range(256))
