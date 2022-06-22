@@ -1,5 +1,7 @@
 #!/usr/bin/env python3.9
 
+# Notice the key is hardcoded
+
 import sys
 
 def decryptRC4(data:str, key:str) -> str:
@@ -18,7 +20,6 @@ def decryptRC4(data:str, key:str) -> str:
         i = ( i + 1 ) % 256
         j = ( j + S[i] ) % 256
         S[i] , S[j] = S[j] , S[i]
-        print(type(char))
         out += (char ^ S[(S[i] + S[j]) % 256]).to_bytes(1, 'big')
 
     return out
