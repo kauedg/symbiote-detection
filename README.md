@@ -19,7 +19,7 @@ Look for these files in your system by running the command below and if it outpu
 
 ```shell
 $ ./busybox find / -type f -iname "*.h" -exec file {} \; | /busybox grep -v "text|magic"
-[TODO]
+/usr/include/linux/usb/usb.h: data
 ```
 Up to now, I'm aware of two of these files:
 - `/usr/include/linux/usb/usb.h` (from an older version - check the decoder in this repository)
@@ -34,7 +34,7 @@ If you remove the preload file, your regular dynamically linked binaries may wor
 
 ### 3) Your libraries shouldn't have the string "rootkit" in it:
 ```shell
-$ ./busybox strings /lib64/ld-linux-x86-64.so.2 | ./busybox grep "rootkit"
+$ ./busybox strings /lib64/init.so | ./busybox grep "rootkit"
 rootkit.c
 ```
 
