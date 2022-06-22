@@ -1,5 +1,5 @@
 # Symbiote Malware Detection
-Guidelines for detecting and disabling Symbiote malware on Linux 
+Guidelines for detecting and disabling Symbiote malware on Linux. Check [this article](https://blogs.blackberry.com/en/2022/06/symbiote-a-new-nearly-impossible-to-detect-linux-threat) for other filenames used and more detailed information.
 
 ## First steps
 Due to the malware's ability to tamper syscalls by hooking system libraries, you can't rely on dynamically compiled tools (e.g. your regular `ls`, `find` and such). Download the [pre-compiled and static linked busybox](https://busybox.net/downloads/binaries/) to workaround this problem:
