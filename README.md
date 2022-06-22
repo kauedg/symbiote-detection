@@ -10,7 +10,7 @@ BusyBox v1.35.0 (2022-01-17 18:45:13 CET) multi-call binary.
 ```
 
 
-There's more than one version of this malware and I've seen two of them, each with it's set of filenames. But two things are certain:
+There's more than one version of this malware and I've seen two of them, each with it's set of filenames. But three things are certain:
 
 ### 1) C Headers (`.h`) files should never be of filetype "data":
 Look for these files in your system by running the command below and if it outputs you any `.h` file having `data` type, it's almost certain it contains captured ssh credentials 
