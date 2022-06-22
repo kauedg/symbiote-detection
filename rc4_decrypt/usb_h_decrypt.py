@@ -1,6 +1,8 @@
 #!/usr/bin/env python3.9
 
-# Notice that the filenames and key are hardcoded. 
+import sys
+
+# Notice that the key is hardcoded. 
 # If you have the `usb.h` file chances are this is the correct encryption key, as it's an early version.
 
 def decryptRC4(data:str, key:str) -> str:
@@ -9,8 +11,6 @@ def decryptRC4(data:str, key:str) -> str:
     out = ""
 
     #KSA Phase
-    S = list(range(256))
-    j = 0
     for i in range(256):
         j = (j + S[i] + ord( key[i % len(key)] )) % 256
         S[i] , S[j] = S[j] , S[i]  
@@ -31,8 +31,8 @@ key = "caixasuporte4232"
 # Each line is encrypted individually and delimited by '0x00000000'
 EOF = b'\x00\x00\x00\x00'
 
-encrypted_file = open("usb.h", "rb")
-decrypted_file = open('decrypted_usb.h.txt', 'w')
+encrypted_file = open(sys.argv[0], "rb")
+decrypted_file = open(sys.argv[1], 'w')
 
 line = b''
 while True:
