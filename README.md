@@ -18,7 +18,7 @@ Look for these files in your system by running the command below and if it outpu
 (run all commands below as the `root` user)
 
 ```shell
-$ ./busybox find / -type f -iname "*.h" -exec file {} \; | /busybox grep -v "text|magic"
+$ ./busybox find / -type f -iname "*.h" -exec file {} \; | /busybox grep ": data"
 /usr/include/linux/usb/usb.h: data
 ```
 Up to now, I'm aware of two of these files:
@@ -41,9 +41,9 @@ rootkit.c
 By now if any of this commands returned output indicating the presence of the Symbiote, you may rename your host to `eddie_brock` :)
 
 #### Processes
-Use `busybox` to look for processes named `kernelconfig`, `kerneldev` or `dbuss` 
+Use `busybox` to look for processes:
 ```shell
-$ ./busybox ps aux | ./busybox grep -E "kernelconfig|kerneldev|dbuss"
+$ ./busybox ps aux | ./busybox grep -E "kernelconfig|kerneldev|dbuss|watchdog/0"
 ```
 Also check for programs in listener mode on some high port.
 ```shell
