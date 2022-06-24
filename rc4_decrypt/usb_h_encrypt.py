@@ -1,5 +1,6 @@
 import sys
 
+# based on https://stackoverflow.com/a/29608263
 # Notice the key is hardcoded
 
 def encryptRC4(data:str, key:str) -> str:
